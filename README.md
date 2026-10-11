@@ -5,9 +5,8 @@ A responsive, mobile-first "Link-in-Bio" landing page built with semantic HTML5 
 ## Project Structure
 ```text
 link-in-bio/
-├── app/
-│   ├── index.html     # Main markup structure and professional links
-│   └── style.css      # Modern responsive styling (dark mode, glassmorphism)
+├── index.html         # Main markup structure and professional links
+├── style.css          # Modern responsive styling (dark mode, glassmorphism)
 ├── multi-media/
 │   └── 9562.jpg       # Profile image asset
 └── README.md          # Project documentation
