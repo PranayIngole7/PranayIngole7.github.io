@@ -1,10 +1,10 @@
-# Link-in-Bio Static Website
+# Pranay Ingole Portfolio
 
-A responsive, mobile-first "Link-in-Bio" landing page built with semantic HTML5 and modern CSS3, showcasing Java backend and DevOps projects, hosted freely via GitHub Pages.
+A responsive, mobile-first professional landing page built with semantic HTML5 and modern CSS3, showcasing Java backend and DevOps projects, hosted via GitHub Pages.
 
 ## Project Structure
 ```text
-link-in-bio/
+portfolio/
 ├── index.html         # Main markup structure and professional links
 ├── style.css          # Modern responsive styling (dark mode, glassmorphism)
 ├── multi-media/
