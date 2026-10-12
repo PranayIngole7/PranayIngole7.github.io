@@ -1,9 +1,13 @@
 # Pranay Ingole — Software Engineer Portfolio
 
-A responsive personal portfolio showcasing my work across backend engineering,
+A responsive personal portfolio showcasing my work in backend engineering,
 full-stack development, DevOps automation, and practical AI integration.
 
-**Live portfolio:** https://pranayingole7.github.io/
+**Live Portfolio:** [pranayingole7.github.io](https://pranayingole7.github.io/)
+
+## Preview
+
+![Portfolio homepage](public/images/portfolio-preview.png)
 
 ## Built With
 
@@ -15,55 +19,67 @@ full-stack development, DevOps automation, and practical AI integration.
 
 ## Featured Projects
 
-### Git-Prasaaran
-A Git-backed documentation publishing platform with a React and TypeScript
-frontend, Spring Boot APIs, GitHub webhook processing, Redis caching, and
-automated deployment.
+### Git-Prasaaran — Documentation Publishing Platform
 
-- [Source code](https://github.com/PranayIngole7/git-prasaaran)
-- [Live application](https://git-prasaaran.netlify.app/)
+A Git-backed Markdown documentation platform featuring a React and TypeScript
+frontend, Spring Boot REST APIs, GitHub webhook processing, Redis caching,
+and automated deployment.
 
-### PayFlow
+- [Source Code](https://github.com/PranayIngole7/git-prasaaran)
+- [Live Application](https://git-prasaaran.netlify.app/)
+
+### PayFlow — Digital Wallet and Payment Platform
+
 A digital wallet and payment platform focused on idempotent payment operations,
 transaction integrity, double-entry ledger postings, and reconciliation.
 
-- [Source code](https://github.com/PranayIngole7/payflow)
+- [Source Code](https://github.com/PranayIngole7/payflow)
 
 ### Cloud-Native Thumbnail Pipeline
+
 A containerized image-processing API built with FastAPI and Pillow, featuring
 S3-compatible storage, health checks, failure handling, and automated tests.
 
-See the portfolio for the current project details and technology stack.
-
 ## Run Locally
 
-Requirements: Node.js 22 or a compatible supported version, and npm.
+### Prerequisites
+
+- Node.js 22 or a compatible supported version
+- npm
+
+### Setup
 
 ```bash
 git clone https://github.com/PranayIngole7/PranayIngole7.github.io.git
 cd PranayIngole7.github.io
 npm ci
 npm run dev
-Vite prints the local development URL in the terminal.
+```
 
-Quality Checks
+Vite prints the local development URL in the terminal, usually
+`http://localhost:5173/`.
+
+### Quality Checks
+
+```bash
 npm run lint
 npm run build
 npm run preview
+```
 
-The production build is generated in dist/.
+The production build is generated in the `dist/` directory.
 
-Deployment
+## Deployment
 
-GitHub Actions builds the Vite application and deploys the generated dist/
-directory to GitHub Pages whenever changes are pushed to main.
+GitHub Actions automatically builds the Vite application and deploys the
+generated `dist/` directory to GitHub Pages when changes are pushed to `main`.
 
-To configure this repository, open Settings → Pages on GitHub and select
-GitHub Actions as the build and deployment source.
+## Contact
 
-Contact
-GitHub
-LinkedIn
-Email
+- [GitHub](https://github.com/PranayIngole7)
+- [LinkedIn](https://www.linkedin.com/in/pranayingole1/)
+- [Email](mailto:pranayingole1@gmail.com)
 
-Built by Pranay Ingole. EOF
+---
+
+Built by Pranay Ingole.
