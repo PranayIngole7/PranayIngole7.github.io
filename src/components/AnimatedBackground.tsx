@@ -22,7 +22,16 @@ export default function AnimatedBackground() {
     ).matches;
 
     const smallScreen = window.matchMedia("(max-width: 640px)").matches;
-    const particleCount = reducedMotion ? 0 : smallScreen ? 24 : 48;
+    const particleCount = reducedMotion ? 0 : smallScreen ? 28 : 55;
+
+    const isLightTheme =
+      document.documentElement.dataset.theme === "light";
+    const particleColor = isLightTheme
+      ? "rgba(37, 99, 235, 0.95)"
+      : "rgba(96, 165, 250, 0.95)";
+    const lineColor = isLightTheme
+      ? "rgba(37, 99, 235, "
+      : "rgba(96, 165, 250, ";
 
     let width = 0;
     let height = 0;
@@ -51,9 +60,9 @@ export default function AnimatedBackground() {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.24,
-        vy: (Math.random() - 0.5) * 0.24,
-        radius: Math.random() * 1.5 + 0.5,
+        vx: (Math.random() - 0.5) * 0.9,
+        vy: (Math.random() - 0.5) * 0.9,
+        radius: Math.random() * 2.0 + 1.5,
       });
     }
 
@@ -81,9 +90,9 @@ export default function AnimatedBackground() {
         const dy = particle.y - pointer.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < 125 && distance > 0) {
-          particle.x += (dx / distance) * 0.12;
-          particle.y += (dy / distance) * 0.12;
+        if (distance < 150 && distance > 0) {
+          particle.x += (dx / distance) * 0.2;
+          particle.y += (dy / distance) * 0.2;
         }
 
         context.beginPath();
@@ -94,7 +103,7 @@ export default function AnimatedBackground() {
           0,
           Math.PI * 2,
         );
-        context.fillStyle = "rgba(59, 130, 246, 0.55)";
+        context.fillStyle = particleColor;
         context.fill();
 
         for (let next = index + 1; next < particles.length; next += 1) {
@@ -103,14 +112,14 @@ export default function AnimatedBackground() {
           const linkY = particle.y - other.y;
           const linkDistance = Math.sqrt(linkX * linkX + linkY * linkY);
 
-          if (linkDistance < 115) {
+          if (linkDistance < 150) {
             context.beginPath();
             context.moveTo(particle.x, particle.y);
             context.lineTo(other.x, other.y);
-            context.strokeStyle = `rgba(59, 130, 246, ${
-              0.12 * (1 - linkDistance / 115)
+            context.strokeStyle = `${lineColor}${
+              (isLightTheme ? 0.42 : 0.34) * (1 - linkDistance / 150)
             })`;
-            context.lineWidth = 0.7;
+            context.lineWidth = 1.1;
             context.stroke();
           }
         }

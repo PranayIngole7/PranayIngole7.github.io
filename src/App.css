@@ -152,11 +152,7 @@
   flex-direction: column;
   justify-content: center;
   padding-block: 76px 30px;
-  background:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-position: center center;
-  background-size: 76px 76px;
+  background: transparent;
 }
 
 .hero::before {
@@ -164,8 +160,8 @@
   z-index: -1;
   inset: 0;
   background:
-    radial-gradient(ellipse at 70% 42%, var(--bg) 0%, transparent 67%),
-    linear-gradient(90deg, var(--bg) 0%, color-mix(in srgb, var(--bg) 91%, transparent) 56%, transparent 100%);
+    radial-gradient(ellipse at 70% 42%, color-mix(in srgb, var(--bg) 28%, transparent) 0%, transparent 72%),
+    linear-gradient(90deg, color-mix(in srgb, var(--bg) 18%, transparent) 0%, transparent 100%);
   content: "";
   pointer-events: none;
 }
@@ -1401,7 +1397,7 @@
 .animated-background {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -1412,6 +1408,11 @@
 #root {
   position: relative;
   isolation: isolate;
+}
+
+#root > *:not(.animated-background) {
+  position: relative;
+  z-index: 1;
 }
 
 /* Gentle reveal for sections and project cards. */
@@ -1800,14 +1801,7 @@ header nav a:not(.button):hover,
 }
 
 
-/* About section: uniform white paragraph typography */
-.about-content p,
-.about-content .about-lead {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.8;
-}
+
 
 
 /* Circular profile portrait — clean blue-accent design */
@@ -1923,4 +1917,49 @@ header nav a:not(.button):hover,
 /* Slightly larger labels in the technical skills cards */
 .skill-card .tag-list .tag {
   font-size: 10px;
+}
+
+/* Emergency visibility fix: keep portfolio content visible in both themes. */
+html[data-theme="light"] main,
+html[data-theme="light"] main section,
+html[data-theme="light"] main section *,
+html[data-theme="dark"] #home,
+html[data-theme="dark"] #home * {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Restore readable theme-aware typography in light mode. */
+html[data-theme="light"] main {
+  color: var(--text);
+}
+
+html[data-theme="light"] main h1,
+html[data-theme="light"] main h2,
+html[data-theme="light"] main h3,
+html[data-theme="light"] main h4,
+html[data-theme="light"] main .eyebrow {
+  color: var(--text) !important;
+}
+
+html[data-theme="light"] main p,
+html[data-theme="light"] main li {
+  color: var(--text-soft);
+}
+
+/* Ensure the dark-theme hero text remains readable. */
+html[data-theme="dark"] #home h1,
+html[data-theme="dark"] #home h2,
+html[data-theme="dark"] #home h3 {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] #home p {
+  color: var(--text-soft);
+}
+
+/* Let the animated particle canvas show through muted sections. */
+main > section.section-muted {
+  background-color: transparent;
+  background-image: none;
 }

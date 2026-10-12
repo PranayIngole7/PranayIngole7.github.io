@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { MotionConfig, motion } from "framer-motion";
 import {
   ArrowDown,
   ArrowRight,
@@ -21,7 +22,6 @@ import "./styles/tokens.css";
 import "./styles/global.css";
 import "./App.css";
 import AnimatedBackground from "./components/AnimatedBackground";
-import MotionEffects from "./components/MotionEffects";
 
 const githubUrl = "https://github.com/PranayIngole7";
 const linkedinUrl = "https://www.linkedin.com/in/pranayingole1/";
@@ -38,7 +38,6 @@ function SectionHeading({
 }) {
   return (
     <div className="section-heading">
-      <AnimatedBackground />
       <span className="eyebrow">{eyebrow}</span>
       <h2>{title}</h2>
       {description && <p>{description}</p>}
@@ -57,7 +56,9 @@ function App() {
 
   return (
     <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <MotionConfig reducedMotion="user">
+        <AnimatedBackground />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>
         <section className="hero section-shell" id="home">
@@ -206,7 +207,15 @@ function App() {
                 const Icon = [Code2, Workflow, BrainCircuit][index];
 
                 return (
-                  <article className="skill-card" key={group.title}>
+                  <motion.article
+                    className="skill-card"
+                    key={group.title}
+                    initial={{ opacity: 1, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ duration: 0.45, delay: index * 0.12 }}
+                    whileHover={{ y: -4 }}
+                  >
                     <div className="skill-icon"><Icon size={21} /></div>
                     <span className="skill-index">0{index + 1}</span>
                     <h3>{group.title}</h3>
@@ -216,7 +225,7 @@ function App() {
                         <span className="tag" key={skill}>{skill}</span>
                       ))}
                     </div>
-                  </article>
+                  </motion.article>
                 );
               })}
             </div>
@@ -352,9 +361,9 @@ function App() {
           <a className="back-to-top" href="#home" aria-label="Back to top">
             <ArrowUpRight size={18} />
           </a>
-          <MotionEffects />
         </div>
       </footer>
+      </MotionConfig>
     </>
   );
 }

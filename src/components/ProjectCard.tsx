@@ -1,4 +1,5 @@
 import { ArrowUpRight, Code2, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
 import type { Project } from "../data/portfolio";
 
 interface ProjectCardProps {
@@ -7,8 +8,13 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article
+    <motion.article
       className={`project-card${project.featured ? " project-featured" : ""}`}
+      initial={{ opacity: 1, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      whileHover={{ y: -5 }}
     >
       <div className="project-topline">
         <span className="project-number">{project.number}</span>
@@ -62,6 +68,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </a>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }
