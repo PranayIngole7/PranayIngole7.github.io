@@ -52,8 +52,13 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <a className="button button-small button-primary" href="#contact" onClick={closeMenu}>
-              Let's talk <ArrowUpRight size={15} />
+            <a
+              className="button button-small button-primary"
+              href="https://pranay-ingole-resume.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume <ArrowUpRight size={15} />
             </a>
           </div>
         </div>

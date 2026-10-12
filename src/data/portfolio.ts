@@ -23,7 +23,7 @@ export const projects: Project[] = [
     category: "DOCUMENTATION PLATFORM",
     title: "Git-Prasaaran",
     description:
-      "A Git-backed documentation publishing engine with a React and TypeScript interface, Spring Boot APIs, GitHub webhook processing, Redis caching, authentication, and automated deployment.",
+      "A Git-backed Markdown documentation platform with a React and TypeScript frontend, Spring Boot APIs, GitHub webhook processing, Redis caching, authentication, and automated deployment.",
     technologies: [
       "React",
       "TypeScript",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     category: "BACKEND ENGINEERING",
     title: "PayFlow",
     description:
-      "A digital wallet and payment platform built around idempotent payment operations, transaction integrity, immutable double-entry ledger postings, reconciliation, and automated tests.",
+      "A digital wallet and payment platform focused on idempotent payment operations, transaction integrity, immutable double-entry ledger postings, reconciliation, and automated testing.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     category: "CLOUD-NATIVE ENGINEERING",
     title: "Cloud-Native Thumbnail Pipeline",
     description:
-      "A containerized image-processing API using FastAPI and Pillow, with S3-compatible object storage, health checks, explicit failure handling, and automated tests.",
+      "A containerized image-processing API built with FastAPI and Pillow, featuring S3-compatible object storage, health checks, explicit failure handling, and automated tests.",
     technologies: [
       "Python",
       "FastAPI",
@@ -67,6 +67,7 @@ export const projects: Project[] = [
       "MinIO / S3",
       "Pytest",
     ],
+    href: `${github}/cloud-native-thumbnail-pipeline`,
     featured: true,
   },
   {
@@ -74,7 +75,7 @@ export const projects: Project[] = [
     category: "FULL-STACK DEVELOPMENT",
     title: "NaadaGangaa",
     description:
-      "A music-streaming application exploring full-stack product development with Spring Boot services and a React-based interface.",
+      "A music-streaming application exploring full-stack development with Spring Boot services and a React-based user interface.",
     technologies: [
       "Java",
       "Spring Boot",
@@ -88,51 +89,50 @@ export const projects: Project[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Build",
-    description: "Applications, APIs, and reliable data systems.",
+    title: "Application Development",
+    description: "Languages, frameworks, and tools for building applications and APIs.",
     skills: [
       "Java",
-      "Spring Boot",
-      "REST APIs",
+      "Python",
+            "Spring Boot",
       "Spring Data JPA",
       "Hibernate",
+      "REST APIs",
       "React",
-      "TypeScript",
-      "Python",
     ],
   },
   {
-    title: "Automate",
-    description: "Development workflows, containers, and delivery.",
-    skills: [
-      "Docker",
-      "Kubernetes",
-      "GitHub Actions",
-      "CI/CD",
-      "Linux",
-      "Git",
-      "Maven",
-      "GitOps",
-    ],
-  },
-  {
-    title: "Integrate",
-    description: "Data platforms, messaging, and practical AI exploration.",
+    title: "Data & Integration",
+    description: "Databases, caching, messaging, and applied AI learning.",
     skills: [
       "PostgreSQL",
       "MySQL",
       "Redis",
       "Apache Kafka",
       "Machine Learning",
-      "AI-assisted development",
+      "Artificial Intelligence",
+    ],
+  },
+  {
+    title: "Development & Delivery",
+    description: "Build tooling, version control, containers, and delivery automation.",
+    skills: [
+      "Maven",
+      "Git",
+      "Linux",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "CI/CD",
+      "GitOps",
     ],
   },
 ];
 
 export const navigation = [
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
