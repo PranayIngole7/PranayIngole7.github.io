@@ -32,3 +32,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Local backup files created during development
+*.backup-*
+*.bak-*
