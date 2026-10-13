@@ -54,7 +54,7 @@ export function Navbar({ theme, toggleTheme }: NavbarProps) {
 
             <a
               className="button button-small button-primary"
-              href="https://pranay-ingole-resume.netlify.app/"
+              href="/multi-media/pranay-ingole-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
