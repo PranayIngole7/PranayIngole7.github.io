@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MotionConfig, motion } from "framer-motion";
 import { createPortal } from "react-dom";
 import {
@@ -9,6 +9,8 @@ import {
   CheckCircle2,
   Code2,
   Download,
+  Eye,
+  ChevronDown,
   BriefcaseBusiness,
   Mail,
   MapPin,
@@ -50,6 +52,8 @@ function SectionHeading({
 
 function App() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
+  const resumeMenuRef = useRef<HTMLDivElement>(null);
 
   const { theme, toggleTheme } = useTheme();
 
@@ -58,6 +62,31 @@ function App() {
       window.scrollTo({ top: 0, left: 0, behavior: "instant" });
     }
   }, []);
+
+  useEffect(() => {
+    if (!resumeMenuOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !resumeMenuRef.current?.contains(event.target)
+      ) {
+        setResumeMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setResumeMenuOpen(false);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [resumeMenuOpen]);
 
   return (
     <>
@@ -78,7 +107,7 @@ function App() {
                 </h1>
 
                 <p className="hero-professional-title">
-                  Software Engineer <span className="title-divider">|</span> Backend Development
+                  Software Engineer <span className="title-divider">|</span> Backend Engineering
                   <span> · </span>Cloud &amp; DevOps<span> · </span>AI/ML
                 </p>
 
@@ -91,13 +120,57 @@ function App() {
                   <a className="button button-primary" href="#projects">
                     Explore my work <ArrowRight size={17} />
                   </a>
-                  <a
-                    className="button button-secondary"
-                    href="/multi-media/pranay-ingole-resume.pdf"
-                    download="pranay-ingole-resume.pdf"
-                  >
-                    Download Resume <Download size={17} />
-                  </a>
+                  <div className="resume-dropdown" ref={resumeMenuRef}>
+                    <button
+                      className="button button-resume-dropdown"
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded={resumeMenuOpen}
+                      aria-controls="resume-dropdown-menu"
+                      onClick={() => setResumeMenuOpen((open) => !open)}
+                    >
+                      Resume
+                      <ChevronDown
+                        size={16}
+                        className={
+                          resumeMenuOpen
+                            ? "resume-chevron is-open"
+                            : "resume-chevron"
+                        }
+                      />
+                    </button>
+
+                    {resumeMenuOpen && (
+                      <div
+                        className="resume-dropdown-menu"
+                        id="resume-dropdown-menu"
+                        role="menu"
+                      >
+                        <a
+                          className="resume-dropdown-item"
+                          href="/multi-media/pranay-ingole-resume.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          role="menuitem"
+                          onClick={() => setResumeMenuOpen(false)}
+                        >
+                          <Eye size={17} aria-hidden="true" />
+                          <span>View Resume</span>
+                        </a>
+
+                        <a
+                          className="resume-dropdown-item"
+                          href="/multi-media/pranay-ingole-resume.pdf"
+                          download="pranay-ingole-resume.pdf"
+                          role="menuitem"
+                          onClick={() => setResumeMenuOpen(false)}
+                        >
+                          <Download size={17} aria-hidden="true" />
+                          <span>Download Resume</span>
+                        </a>
+                      </div>
+                    )}
+                  </div>
                   <a className="button button-secondary" href="#contact">
                     Get in touch <ArrowUpRight size={17} />
                   </a>
