@@ -112,8 +112,7 @@ function App() {
                 </p>
 
                 <p className="hero-description">
-                  Building backend applications, automating software delivery, and
-                  exploring practical applications of AI and machine learning.
+                  Software Engineer with 1.6 years of professional experience focused on building backend applications, automating software delivery, and integrating AI into practical solutions.
                 </p>
 
                 <div className="hero-actions">
@@ -228,16 +227,16 @@ function App() {
 
               <div className="about-content">
                 <p className="about-lead">
-                  A software engineer focused on building scalable backend applications with clean architectures, implementing robust business logic, and developing solutions that balance performance and security.
+                  Software Engineer with 1.6 years of professional experience in Java application development at FEV India, contributing to Software-Defined Vehicle (SDV) applications, including Bluetooth connectivity and media player functionality, using Java, Spring Boot, REST APIs, SQL, multithreading, and concurrency.
                 </p>
                 <p>
-                  Skilled in backend engineering, full-stack development,
-                  data systems, and deployment automation.
+                  Experienced in building backend and full-stack applications using Java, Spring Boot, REST APIs, React, Python, PostgreSQL, Redis, and Kafka, including a distributed digital wallet and payment platform, an AI-powered documentation publishing engine, and a cloud-native image-processing pipeline.
                 </p>
                 <p>
-                  Exploring how AI and machine learning can solve
-                  practical problems — with a focus on useful integrations
-                  in real-world applications.
+                  Hands-on experience with Docker, Kubernetes, AWS, CI/CD, GitHub Actions, automated testing, and observability tools.
+                </p>
+                <p>
+                  Exploring practical applications of AI and machine learning, including model deployment, inference, and integration with backend systems.
                 </p>
 
                 <a className="text-link" href={githubUrl} target="_blank" rel="noopener noreferrer">
@@ -323,9 +322,8 @@ function App() {
 
                           return (
                             <span
-                              className={`tag ${
-                                featuredSkills.includes(skill) ? "core-skill" : ""
-                              }`}
+                              className={`tag ${featuredSkills.includes(skill) ? "core-skill" : ""
+                                }`}
                               key={skill}
                             >
                               {skill}
